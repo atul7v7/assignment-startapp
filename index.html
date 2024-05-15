@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <title>Umbrella Customizer</title>
+</head>
+
+<body>
+    <div class="customizer">
+        <div class="umbrella" id="umbrella">
+            <img src="images/blueUmbrella.png" alt="Umbrella" id="umbrellaImage">
+            <div class="loader">
+                <img src="" alt="Loader" class="loader-icon">
+            </div>
+        </div>
+        <div class="swatches">
+            <h1>Custom Umbrella</h1>
+    
+            <div class="colors">
+                <div class="color-swatch" style="background-color: #3498db"
+                    onclick="changeUmbrella('images/blueUmbrella.png', 'blue')">
+                </div>
+                <div class="color-swatch" style="background-color: #ff69b4"
+                    onclick="changeUmbrella('images/pinkUmbrella.png', 'pink')">
+                </div>
+                <div class="color-swatch" style="background-color: #f1c40f"
+                    onclick="changeUmbrella('images/yellowUmbrella.png', 'yellow')">
+                </div>
+            </div>
+            <h2>Customize your Umbrella</h2>
+            <p class="logo-upload">Upload a logo for instant preview</p>
+            <div class="file-input-wrapper">
+                <input type="file" id="logoInput" accept="image/*">
+                <label class="logoInput" for="logoInput">
+                    <img src="images/upload_icon.svg" alt="Upload Icon">
+                    Upload Logo
+                    <!-- <button class="remove-logo" onclick="removeLogo()">×</button> -->
+                </label>
+                <button class="remove-logo" onclick="removeLogo()">×</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

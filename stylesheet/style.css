@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+img {
+    width: 100%;
+    transition: opacity 0.5s ease; /* Add smooth opacity transition */
+}
+
+label img {
+    width: 20px;
+}
+
+span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.customizer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+}
+
+.umbrella {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.swatches {
+    flex: calc(0 0 50% - 100px);
+    max-width: calc(0 0 50% - 100px);
+    padding-left: 100px;
+}
+
+.logo {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 30px;
+    bottom: 10%;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    animation: rotateLoader 1s linear infinite;
+}
+
+@keyframes rotateLoader {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg); /* Start rotation */
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg); /* End rotation */
+    }
+}
+
+.color-swatch.loading .loader {
+    display: block;
+}
+
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.file-input-wrapper input[type="file"] {
+    display: none;
+}
+
+.file-input-wrapper label {
+    display: block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.file-input-wrapper label:hover {
+    background-color: #2980b9;
+}
+
+.file-input-wrapper img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+.logoInput {   
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Add the following CSS to your existing stylesheet */
+.remove-logo {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 30px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+}
+

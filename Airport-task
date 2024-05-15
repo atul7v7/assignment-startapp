@@ -1,0 +1,53 @@
+function minPlanesToReachEnd(airports: number[]): number {
+    const N = airports.length;
+
+    // this is used for memozation to increase algoithm efficiency
+    const memo: number[] = new Array(N).fill(-1);
+
+    // 
+    function dfs(index: number): number {
+        // If we are at the last airport, no more planes are needed
+        if (index === N - 1) {
+            return 0;
+        }
+
+        // return infinity if it is not possible to reach last airport 
+        if(index >= N){
+            return Number.MAX_SAFE_INTEGER
+        }
+
+        // If we've already computed this subproblem, return the stored result
+        if (memo[index] !== -1) {
+            return memo[index];
+        }
+        // maximum airport to flu over
+        const maxReach = index + airports[index];
+        let minPlanes = Number.MAX_SAFE_INTEGER;
+
+        // Try every possible move from the current airport
+        for (let next = index + 1; next <= Math.min(maxReach, N - 1); next++) {
+            const planes = dfs(next);
+            if (planes !== Number.MAX_SAFE_INTEGER) {
+                minPlanes = Math.min(minPlanes, planes + 1);
+            }
+        }
+
+        // Store the result in memo
+        memo[index] = minPlanes;
+        return memo[index];
+    }
+
+    const result = dfs(0);
+    return result === Number.MAX_SAFE_INTEGER ? -1 : result;
+}
+
+// Test the function with the given examples
+const array1 = [2, 1, 2, 3, 1];
+const array2 = [1, 6, 3, 4, 5, 0, 0, 0, 6];
+const array3 = [9, 6, 3, 4, 5, 0, 0, 0, 6];
+
+console.log(minPlanesToReachEnd(array1)); // Output: 2
+console.log(minPlanesToReachEnd(array2)); // Output: 3
+console.log(minPlanesToReachEnd(array3)); // Output: 1
+
+
